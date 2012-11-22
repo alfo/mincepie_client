@@ -19,8 +19,9 @@
 // Network Settings
 
 byte mac[] = {  0x90, 0xA2, 0xDA, 0x09, 0x00, 0x03 }; // MAC Found on sticker
-IPAddress server(10,0,1,8); // Google
-IPAddress ip(10,0,1,105); // My static local IP
+byte server[] = {173 , 194 , 41 , 169 }; // Google
+byte ip[] = { 10 , 0 , 1 , 105 }; // My static local IP
+byte dns[] = { 10 , 0 , 1 , 1 }; // DNS on the local network
 
 // Initialize the Ethernet client library
 // with the IP address and port of the server 
@@ -34,7 +35,7 @@ void setup() {
   Serial.println("Connected to Serial");
 
   // start the Ethernet connection:
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(mac, ip, thedns);
   // give the Ethernet shield a second to initialize:
   delay(1000);
   Serial.println("connecting...");
